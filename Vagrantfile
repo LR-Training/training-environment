@@ -3,6 +3,9 @@ Vagrant.configure("2") do |config|
 
   config.ssh.forward_agent = true
 
+  config.vm.synced_folder "home", "/home/vagrant/"
+
+
   config.vm.network :forwarded_port, host: 4567, guest: 4567
   config.vm.network :forwarded_port, host: 8080, guest: 8080
   config.vm.network :forwarded_port, host: 5432, guest: 5432
