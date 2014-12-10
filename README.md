@@ -26,5 +26,6 @@ git clone git@github.com:LR-Training/training-environment.git
 From the command line, type:
 
 ```
+cd training-environment
 vagrant up
 ```
