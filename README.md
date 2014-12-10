@@ -15,7 +15,7 @@ This is a local virtual environment that contains the following:
 
 ### Step 1
 
-Clone the repo:
+From the command line, Clone the repo:
 
 ```
 git clone git@github.com:LR-Training/training-environment.git
