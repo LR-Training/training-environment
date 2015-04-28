@@ -29,3 +29,10 @@ From the command line, type:
 cd training-environment
 vagrant up
 ```
+
+### Step 3
+
+The following services are now available:
+
+* Jenkins (http://localhost:8080)
+* Test App (http://localhost:4567)
