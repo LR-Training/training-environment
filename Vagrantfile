@@ -4,6 +4,7 @@ Vagrant.configure("2") do |config|
   config.ssh.forward_agent = true
 
   config.vm.synced_folder "home", "/home/vagrant/"
+  config.vm.synced_folder ".aptget", "/var/cache/apt/archives/"
 
 
   config.vm.network :forwarded_port, host: 4567, guest: 4567

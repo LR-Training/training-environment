@@ -1,6 +1,10 @@
 #!/bin/bash
 set -e
 
+echo "Installing Ruby Dev Kit"
+
+  apt-get install -y ruby1.9.1-dev
+
 echo "Installing Jenkins"
 
   wget -q -O - https://jenkins-ci.org/debian/jenkins-ci.org.key | sudo apt-key add -
@@ -21,14 +25,18 @@ echo "Installing Postgres and configuring remote connections"
   sed -i "s/#host    replication     postgres        ::1\/128                 md5/host all all 0.0.0.0\/0 trust/g" /etc/postgresql/9.3/main/pg_hba.conf
   /etc/init.d/postgresql restart
 
-echo "Installing Ruby Gems"
+  sudo apt-get install -y libpq-dev
 
-  gem install sinatra
+  sudo -u postgres psql -p 5432 -c "ALTER USER postgres WITH PASSWORD 'admin';"
 
 echo "Cloning Training Repositories"
 
-  git clone https://github.com/LR-Training/test-sinatra-website.git
+  if [[ ! -e /home/vagrant/test-sinatra-website/ ]]; then
+    git clone https://github.com/LR-Training/test-sinatra-website.git
+  fi
 
-echo "Running Ruby Apps"
+echo "Running Provision Scripts"
 
-  nohup ruby test-sinatra-website/run.rb >> log.txt 2>&1 &
+  for d in /home/vagrant/*/provision.sh ; do
+		sh $d
+	done

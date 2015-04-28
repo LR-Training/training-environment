@@ -2,3 +2,8 @@
 .vagrant
 
 home/test-sinatra-website/
+
+
+.aptget/partial
+.aptget/*.deb
+.aptget/lock
