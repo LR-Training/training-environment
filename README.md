@@ -30,7 +30,7 @@ cd training-environment
 vagrant up
 ```
 
-### Step 3
+### Test Services
 
 The following services are now available:
 

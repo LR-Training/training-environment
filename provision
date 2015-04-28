@@ -34,6 +34,9 @@ echo "Cloning Training Repositories"
   if [[ ! -e /home/vagrant/test-sinatra-website/ ]]; then
     git clone https://github.com/LR-Training/test-sinatra-website.git
   fi
+  cd test-sinatra-website
+  git pull
+  cd ~/
 
 echo "Running Provision Scripts"
 
