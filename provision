@@ -29,15 +29,6 @@ echo "Installing Postgres and configuring remote connections"
 
   sudo -u postgres psql -p 5432 -c "ALTER USER postgres WITH PASSWORD 'admin';"
 
-echo "Cloning Training Repositories"
-
-  if [[ ! -e /home/vagrant/test-sinatra-website/ ]]; then
-    git clone https://github.com/LR-Training/test-sinatra-website.git
-  fi
-  cd test-sinatra-website
-  git pull
-  cd ~/
-
 echo "Running Provision Scripts"
 
   for d in /home/vagrant/*/provision.sh ; do
