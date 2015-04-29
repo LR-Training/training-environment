@@ -22,8 +22,12 @@ sudo -u postgres psql -p 5432 test << "EOF"
 
 EOF
 
-cat <<EOF >> /etc/rc.local
-  nohup ruby /home/vagrant/test-sinatra-website/run.rb >> log.txt 2>&1 &
+
+
+cat <<EOF >> /etc/rc0.d/register-stub
+#! /bin/sh
+cd /home/vagrant
+nohup ruby /home/vagrant/test-sinatra-website/run.rb >> log.txt 2>&1 &
 
 EOF
 
