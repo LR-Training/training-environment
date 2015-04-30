@@ -37,8 +37,9 @@ From the command line, type:
 
 ```
 cd training-environment
+vagrant destroy
 git pull
-vagrant reload
+vagrant up
 ```
 
 ### Available Web Sites
