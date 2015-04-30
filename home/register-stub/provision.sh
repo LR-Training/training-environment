@@ -15,3 +15,5 @@ cd /home/vagrant
 nohup ruby /home/vagrant/register-stub/run.rb >> log.txt 2>&1 &
 
 EOF
+
+nohup ruby /home/vagrant/test-sinatra-website/run.rb >> log.txt 2>&1 &
