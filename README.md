@@ -3,7 +3,7 @@ Land Registry Vagrant Training Environment
 
 This is a local virtual environment that contains the following:
 
-* Jenkins running on port 8080
+* Jenkins running on port 8081
 * PostgreSQL running on port 5432
 * A Test app running on port 4567
 * A Json Get Register app running on port 5000
@@ -45,7 +45,7 @@ vagrant up
 ### Available Web Sites
 
 The following services are now available:
-* Jenkins ([http://localhost:8080](http://localhost:8080))
+* Jenkins ([http://localhost:8081](http://localhost:8081))
 * Test App ([http://localhost:4567](http://localhost:4567))
 * Get Register App ([http://localhost:5000](http://localhost:5000))
 
