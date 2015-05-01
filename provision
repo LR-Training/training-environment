@@ -29,8 +29,75 @@ echo "Installing Postgres and configuring remote connections"
 
   sudo -u postgres psql -p 5432 -c "ALTER USER postgres WITH PASSWORD 'admin';"
 
-echo "Running Provision Scripts"
+echo "Setting Up register Stub"
 
-  for d in /home/vagrant/*/provision.sh ; do
-		sh $d
-	done
+gem install sinatra
+gem install rerun
+
+cat <<EOF >> /etc/rc.local
+  nohup ruby /home/vagrant/register-stub/run.rb >> log.txt 2>&1 &
+
+EOF
+
+cat <<EOF >> /etc/rc0.d/register-stub
+#! /bin/sh
+cd /home/vagrant
+nohup ruby /home/vagrant/register-stub/run.rb >> log.txt 2>&1 &
+
+EOF
+
+nohup ruby /home/vagrant/register-stub/run.rb >> log.txt 2>&1 &
+
+echo "Setting Up register Stub"
+
+gem install sinatra
+gem install rerun
+
+cat <<EOF >> /etc/rc.local
+  nohup ruby /home/vagrant/register-stub/run.rb >> log.txt 2>&1 &
+
+EOF
+
+cat <<EOF >> /etc/rc0.d/register-stub
+#! /bin/sh
+cd /home/vagrant
+nohup ruby /home/vagrant/register-stub/run.rb >> log.txt 2>&1 &
+
+EOF
+
+nohup ruby /home/vagrant/register-stub/run.rb >> log.txt 2>&1 &
+
+echo "Setting Up Test Site"
+
+
+gem install sinatra
+gem install pg
+gem install rerun
+
+
+sudo -u postgres psql -p 5432  << "EOF"
+CREATE DATABASE test;
+
+EOF
+sudo -u postgres psql -p 5432 test << "EOF"
+  CREATE DATABASE test;
+
+  CREATE TABLE users (
+    user_id  SERIAL PRIMARY KEY,
+    user_name    varchar(40),
+    user_password    varchar(40),
+    user_status    integer
+  );
+
+EOF
+
+
+
+cat <<EOF >> /etc/rc0.d/register-stub
+#! /bin/sh
+cd /home/vagrant
+nohup ruby /home/vagrant/test-sinatra-website/run.rb >> log.txt 2>&1 &
+
+EOF
+
+nohup ruby /home/vagrant/test-sinatra-website/run.rb >> log.txt 2>&1 &
