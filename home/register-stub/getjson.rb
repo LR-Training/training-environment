@@ -6,7 +6,7 @@ def getjson(filename)
   #checks if file exists and goes to failed page if it doesn't
   if File.file?("/home/vagrant/register-stub/data/"+filename)
     json = File.read("/home/vagrant/register-stub/data/"+filename)
-    obj = JSON.parse(json)
+    obj = JSON.parse(json.force_encoding("iso-8859-1"))
     return obj.to_json
     else
       redirect "../failed"
