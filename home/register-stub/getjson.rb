@@ -4,8 +4,8 @@
 #function that reads a formatted json file in and returns as pure json response
 def getjson(filename)
   #checks if file exists and goes to failed page if it doesn't
-  if File.file?("./data/"+filename)
-    json = File.read("./data/"+filename)
+  if File.file?("/home/vagrant/register-stub/data/"+filename)
+    json = File.read("/home/vagrant/register-stub/data/"+filename)
     obj = JSON.parse(json)
     return obj.to_json
     else
@@ -16,7 +16,7 @@ end
 #trying to get list of files to put in index page automatically but not yet complete!
 def filename
   files = Hash.new
-  filenames =  Dir.glob('./data/*.json')
+  filenames =  Dir.glob('/home/vagrant/register-stub/data/*.json')
   filenames.foreach(".") do |file|
    puts file
   files[file].add file
