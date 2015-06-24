@@ -4,6 +4,7 @@ Vagrant.configure("2") do |config|
   config.ssh.forward_agent = true
 
   config.vm.synced_folder "home", "/home/vagrant/"
+  config.vm.synced_folder ".jenkins_jobs", "/var/lib/jenkins/jobs/", :mount_options => ['dmode=777', 'fmode=777']
   config.vm.synced_folder ".aptget", "/var/cache/apt/archives/"
 
 
@@ -15,4 +16,8 @@ Vagrant.configure("2") do |config|
 
   config.vm.provision :shell, :path => 'provision'
 
+  config.vm.provider "virtualbox" do |v|
+    v.memory = 1024
+    v.cpus = 2
+  end
 end

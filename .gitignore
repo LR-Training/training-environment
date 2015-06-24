@@ -8,3 +8,5 @@
 .aptget/lock
 
 home/log.txt
+
+.jenkins_jobs/example/builds/*

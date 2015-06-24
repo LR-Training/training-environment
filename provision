@@ -3,7 +3,9 @@ set -e
 
 echo "Installing Ruby Dev Kit"
 
-  apt-get install -y ruby1.9.1-dev
+  apt-add-repository ppa:brightbox/ruby-ng
+  apt-get update
+  apt-get install -y ruby2.2 ruby2.2-dev
 
 echo "Installing Jenkins"
 
@@ -11,12 +13,26 @@ echo "Installing Jenkins"
   sh -c 'echo deb http://pkg.jenkins-ci.org/debian binary/ > /etc/apt/sources.list.d/jenkins.list'
   apt-get update
   apt-get -qy install jenkins
+
+  usermod -a -G vagrant jenkins
+  usermod -a -G jenkins vagrant
   service jenkins start
+  sleep 60
+  java -jar /vagrant/.jenkins/jenkins-cli.jar -s http://localhost:8080 install-plugin git
+  service jenkins restart
 
 echo "Installing git command line tools"
 
   apt-get -qy install git
   echo -e "Host github.com\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
+
+  #ln -s /vagrant/.jenkins/ /var/lib/jenkins
+
+echo "Installing test Gems"
+
+  gem install cucumber
+  gem install rspec
+  gem install capybara
 
 echo "Installing Postgres and configuring remote connections"
 
