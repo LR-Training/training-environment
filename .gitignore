@@ -10,3 +10,7 @@
 home/log.txt
 
 .jenkins_jobs/example/builds/*
+
+.jenkins_jobs/example/scm-polling.log
+
+.jenkins_jobs/example/nextBuildNumber

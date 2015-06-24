@@ -35,7 +35,7 @@ echo "Installing phantomjs"
   mv phantomjs-1.9.7-linux-x86_64.tar.bz2 /usr/local/share/
   cd /usr/local/share/
   tar xvjf phantomjs-1.9.7-linux-x86_64.tar.bz2
-  ln -sf /usr/local/share/$PHANTOM_JS/bin/phantomjs /usr/bin/phantomjs
+  ln -sf /usr/local/share/phantomjs-1.9.7-linux-x86_64/bin/phantomjs /usr/bin/phantomjs
 
 echo "Installing test Gems"
 
