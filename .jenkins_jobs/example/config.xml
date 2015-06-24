@@ -34,13 +34,44 @@
   <builders>
     <hudson.tasks.Shell>
       <command>cd tests/example1
-cucumber</command>
+echo %WORKSPACE%
+cucumber --format junit --out $WORKSPACE/results --format pretty webdriver=poltergeist</command>
     </hudson.tasks.Shell>
     <hudson.tasks.Shell>
       <command>cd tests/example2
-cucumber</command>
+cucumber --format junit --out $WORKSPACE/results --format pretty webdriver=poltergeist</command>
     </hudson.tasks.Shell>
   </builders>
-  <publishers/>
+  <publishers>
+    <xunit plugin="xunit@1.96">
+      <types>
+        <JUnitType>
+          <pattern>results/*</pattern>
+          <skipNoTestFiles>false</skipNoTestFiles>
+          <failIfNotNew>true</failIfNotNew>
+          <deleteOutputFiles>true</deleteOutputFiles>
+          <stopProcessingIfError>true</stopProcessingIfError>
+        </JUnitType>
+      </types>
+      <thresholds>
+        <org.jenkinsci.plugins.xunit.threshold.FailedThreshold>
+          <unstableThreshold></unstableThreshold>
+          <unstableNewThreshold></unstableNewThreshold>
+          <failureThreshold></failureThreshold>
+          <failureNewThreshold></failureNewThreshold>
+        </org.jenkinsci.plugins.xunit.threshold.FailedThreshold>
+        <org.jenkinsci.plugins.xunit.threshold.SkippedThreshold>
+          <unstableThreshold></unstableThreshold>
+          <unstableNewThreshold></unstableNewThreshold>
+          <failureThreshold></failureThreshold>
+          <failureNewThreshold></failureNewThreshold>
+        </org.jenkinsci.plugins.xunit.threshold.SkippedThreshold>
+      </thresholds>
+      <thresholdMode>1</thresholdMode>
+      <extraConfiguration>
+        <testTimeMargin>3000</testTimeMargin>
+      </extraConfiguration>
+    </xunit>
+  </publishers>
   <buildWrappers/>
 </project>
