@@ -1,0 +1,69 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<result plugin="junit@1.6">
+  <suites>
+    <suite>
+      <file>/var/lib/jenkins/jobs/example/workspace/generatedJUnitFiles/JUnit/TEST-2063146907.xml</file>
+      <name>Create User and login to test site</name>
+      <stdout>
+    
+  </stdout>
+      <stderr>
+    
+  </stderr>
+      <duration>5.9680347</duration>
+      <cases>
+        <case>
+          <duration>5.694594</duration>
+          <className>Create User and login to test site</className>
+          <testName>Create new user and login to site</testName>
+          <skipped>false</skipped>
+          <stdout></stdout>
+          <stderr></stderr>
+          <failedSince>0</failedSince>
+        </case>
+        <case>
+          <duration>0.273441</duration>
+          <className>Create User and login to test site</className>
+          <testName>Login using an incorrect username</testName>
+          <skipped>false</skipped>
+          <stdout></stdout>
+          <stderr></stderr>
+          <failedSince>0</failedSince>
+        </case>
+      </cases>
+    </suite>
+    <suite>
+      <file>/var/lib/jenkins/jobs/example/workspace/generatedJUnitFiles/JUnit/TEST-597109720.xml</file>
+      <name>Create User on test site</name>
+      <stdout>
+    
+  </stdout>
+      <stderr>
+    
+  </stderr>
+      <duration>0.002624</duration>
+      <cases>
+        <case>
+          <duration>0.001562</duration>
+          <className>Create User on test site</className>
+          <testName>Create new user that doesn&apos;t exist</testName>
+          <skipped>false</skipped>
+          <stdout></stdout>
+          <stderr></stderr>
+          <failedSince>0</failedSince>
+        </case>
+        <case>
+          <duration>0.001062</duration>
+          <className>Create User on test site</className>
+          <testName>Create new user that already exists</testName>
+          <skipped>false</skipped>
+          <stdout></stdout>
+          <stderr></stderr>
+          <failedSince>0</failedSince>
+        </case>
+      </cases>
+    </suite>
+  </suites>
+  <duration>5.970659</duration>
+  <keepLongStdio>true</keepLongStdio>
+</result>

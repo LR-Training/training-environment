@@ -9,6 +9,8 @@
 
 home/log.txt
 .jenkins_jobs/example/builds/*
-.jenkins_jobs/example/scm-polling.log
-.jenkins_jobs/example/nextBuildNumber
+!.jenkins_jobs/example/builds/1
+!.jenkins_jobs/example/builds/2
+!.jenkins_jobs/example/builds/3
+
 .jenkins_jobs/example/workspace/

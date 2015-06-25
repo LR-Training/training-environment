@@ -1,0 +1,61 @@
+Started by user [8mha:AAAAlh+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzOEgYu/dLi1CL9vNKcHACFIKlWvwAAAA==[0manonymous
+Building in workspace /var/lib/jenkins/jobs/example/workspace
+ > git rev-parse --is-inside-work-tree # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url https://github.com/LR-Training/training-environment # timeout=10
+Fetching upstream changes from https://github.com/LR-Training/training-environment
+ > git --version # timeout=10
+ > git -c core.askpass=true fetch --tags --progress https://github.com/LR-Training/training-environment +refs/heads/*:refs/remotes/origin/*
+ > git rev-parse refs/remotes/origin/master^{commit} # timeout=10
+ > git rev-parse refs/remotes/origin/origin/master^{commit} # timeout=10
+Checking out Revision 00b39be4e1dd6bf0881c0f5f5fe32e1e4c46d94d (refs/remotes/origin/master)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 00b39be4e1dd6bf0881c0f5f5fe32e1e4c46d94d
+ > git rev-list 00b39be4e1dd6bf0881c0f5f5fe32e1e4c46d94d # timeout=10
+[workspace] $ /bin/sh -xe /tmp/hudson517735027118131221.sh
++ cd tests/example1
++ cucumber --format junit --out /var/lib/jenkins/jobs/example/workspace/results --format pretty webdriver=poltergeist
+Feature: Create User on test site
+
+  Scenario: Create new user that doesn't exist # features/rest.feature:3
+    When I create a user                       # features/steps/code.rb:1
+      {"user_name"=>"User1435214003@example.org", "user_password"=>"password"}
+    Then the user is successfully created      # features/steps/code.rb:12
+
+  Scenario: Create new user that already exists # features/rest.feature:7
+    When I create a user which already exists   # features/steps/code.rb:16
+    Then the user is not created                # features/steps/code.rb:26
+
+2 scenarios (2 passed)
+4 steps (4 passed)
+0m0.059s
+[workspace] $ /bin/sh -xe /tmp/hudson2081270621282894760.sh
++ cd tests/example2
++ cucumber --format junit --out /var/lib/jenkins/jobs/example/workspace/results --format pretty webdriver=poltergeist
+including Capybara::DSL in the global scope is not recommended!
+Feature: Create User and login to test site
+
+  Scenario: Create new user and login to site # features/capybara.feature:3
+    Given I have a user account               # features/steps/code.rb:2
+    When I visit the test site                # features/steps/code.rb:10
+    And I login using that user account       # features/steps/code.rb:14
+    Then I am successfully logged in          # features/steps/code.rb:20
+
+  Scenario: Login using an incorrect username          # features/capybara.feature:9
+    When I visit the test site                         # features/steps/code.rb:10
+    And I login with a test account that doesn't exist # features/steps/code.rb:24
+    Then I receive a login error                       # features/steps/code.rb:30
+
+2 scenarios (2 passed)
+7 steps (7 passed)
+0m5.927s
+[xUnit] [INFO] - Starting to record.
+[xUnit] [INFO] - Processing JUnit
+[xUnit] [INFO] - [JUnit] - 2 test report file(s) were found with the pattern 'results/*' relative to '/var/lib/jenkins/jobs/example/workspace' for the testing framework 'JUnit'.
+[xUnit] [INFO] - Converting '/var/lib/jenkins/jobs/example/workspace/results/TEST-features-capybara.xml' .
+[xUnit] [INFO] - Converting '/var/lib/jenkins/jobs/example/workspace/results/TEST-features-rest.xml' .
+[xUnit] [INFO] - Check 'Failed Tests' threshold.
+[xUnit] [INFO] - Check 'Skipped Tests' threshold.
+[xUnit] [INFO] - Setting the build status to SUCCESS
+[xUnit] [INFO] - Stopping recording.
+Finished: SUCCESS
