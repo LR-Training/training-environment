@@ -17,10 +17,6 @@ echo "Installing Jenkins"
   usermod -a -G vagrant jenkins
   usermod -a -G jenkins vagrant
   service jenkins start
-  sleep 60
-  java -jar /vagrant/.jenkins/jenkins-cli.jar -s http://localhost:8080 install-plugin git
-  java -jar /vagrant/.jenkins/jenkins-cli.jar -s http://localhost:8080 install-plugin xUnit
-  service jenkins restart
 
 echo "Installing git command line tools"
 
@@ -130,3 +126,10 @@ nohup ruby /home/vagrant/test-sinatra-website/run.rb >> log.txt 2>&1 &
 EOF
 
 nohup ruby /home/vagrant/test-sinatra-website/run.rb >> log.txt 2>&1 &
+
+echo "Installing Jenkins plugins"
+
+  sleep 60
+  java -jar /vagrant/.jenkins/jenkins-cli.jar -s http://localhost:8080 install-plugin git
+  java -jar /vagrant/.jenkins/jenkins-cli.jar -s http://localhost:8080 install-plugin xUnit
+  service jenkins restart
