@@ -1,0 +1,8 @@
+Started on Jun 25, 2015 10:55:08 AM
+Using strategy: Default
+[poll] Last Built Revision: Revision fc49e1e7d5e22833f9647567dda68ced900ff1da (refs/remotes/origin/master)
+ > git --version # timeout=10
+ > git -c core.askpass=true ls-remote -h https://github.com/LR-Training/training-environment # timeout=10
+[poll] Latest remote head revision on origin/master is: fc49e1e7d5e22833f9647567dda68ced900ff1da - already built by 4
+Done. Took 5.7 sec
+No changes
