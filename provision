@@ -7,20 +7,20 @@ echo "Installing Ruby Dev Kit"
   apt-get update
   apt-get install -y ruby2.2 ruby2.2-dev
 
-echo "Installing Jenkins"
+#echo "Installing Jenkins"
 
-  wget -q -O - https://jenkins-ci.org/debian/jenkins-ci.org.key | sudo apt-key add -
-  sh -c 'echo deb http://pkg.jenkins-ci.org/debian binary/ > /etc/apt/sources.list.d/jenkins.list'
-  apt-get update
-  apt-get -qy install jenkins
+#  wget -q -O - https://jenkins-ci.org/debian/jenkins-ci.org.key | sudo apt-key add -
+#  sh -c 'echo deb http://pkg.jenkins-ci.org/debian binary/ > /etc/apt/sources.list.d/jenkins.list'
+#  apt-get update
+#  apt-get -qy install jenkins
 
-  usermod -a -G vagrant jenkins
-  usermod -a -G jenkins vagrant
-  service jenkins start
-  sleep 240
-  java -jar /vagrant/.jenkins/jenkins-cli.jar -s http://localhost:8080 install-plugin git
-  java -jar /vagrant/.jenkins/jenkins-cli.jar -s http://localhost:8080 install-plugin xUnit
-  service jenkins restart
+#  usermod -a -G vagrant jenkins
+#  usermod -a -G jenkins vagrant
+#  service jenkins start
+#  sleep 240
+#  java -jar /vagrant/.jenkins/jenkins-cli.jar -s http://localhost:8080 install-plugin git
+#  java -jar /vagrant/.jenkins/jenkins-cli.jar -s http://localhost:8080 install-plugin xUnit
+#  service jenkins restart
 
 echo "Installing git command line tools"
 

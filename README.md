@@ -46,6 +46,7 @@ vagrant up
 
 The following services are now available:
 * Jenkins ([http://localhost:8081](http://localhost:8081))
+(jenkins removed from provision temporarily as there is a version issue)
 * Test App ([http://localhost:4567](http://localhost:4567))
 * Get Register App ([http://localhost:5000](http://localhost:5000))
 
